@@ -9,20 +9,40 @@
 int main() {
     int n, m;
     int* arr;
+    int* circ_arr;
 
     // Ввод данных
-    std::cout << "n = ";
+    std::cout << "Enter n: ";
     std::cin >> n;
-    std::cout << "m = ";
+    std::cout << "Enter m: ";
     std::cin >> m;
-    std::cout << "arr = ";
-
-    arr = new int[n];
-    for (int i = 0; i < n; i++) {
-        arr[i] = i;
-        std::cout << arr[i] << ' ';
+    if (n <= 0 || m <= 0) {
+        std::cerr << "[ERROR] n and m must be positive." << std::endl;
+        return 1;
     }
 
+    // Заполнение массивов
+    std::cout << "arr = ";
+    arr = new int[n];
+    for (int i = 0; i < n; i++) {
+        arr[i] = i + 1;
+        std::cout << arr[i] << ' ';
+    }
+    std::cout << std::endl;
+
+    // foo
+    // {
+    int i = 0;
+    do {
+        for (int j = 0; j < m; j++) {
+            std::cout << arr[(i + j) % n] << ' ';
+        }
+        std::cout << std::endl;
+        i = (i + m - 1) % n;
+    } while (i != 0);
+    // }
+
+    // Освобождение памяти
     delete[] arr;
 
     return 0;
