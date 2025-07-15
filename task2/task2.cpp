@@ -17,7 +17,7 @@ private:
 public:
     Circle(double cx, double cy, double radius) : x(cx), y(cy), r(radius) {}
 
-    // Определение положения точки относительно окружности
+    // Определение положения точки относительно окружности.
     int checkPoint(double px, double py) const;
 };
 
